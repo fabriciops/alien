@@ -12,13 +12,26 @@ def check_events(ship):
         elif event.type == py.KEYDOWN:
             if event.key == py.K_RIGHT:
                 #move para direita
-                ship.rect.centerx += 1
+                ship.moving_right = True
+            
+            if event.key == py.K_LEFT:
+                #move para direita
+                ship.moving_left = True
+        
+        elif event.type == py.KEYUP:
+            if event.key == py.K_RIGHT:
+                #move para direita
+                ship.moving_right = False
+            
+            if event.key == py.K_LEFT:
+                #move para direita
+                ship.moving_left = False
 
 def update_screen(ai_setting, screen, ship):
 
     # atualiza / redesenha    
     screen.fill(ai_setting.bg_color)
-    ship.blitme()
+    ship.update()
 
     #Tela recente visível
     py.display.flip()

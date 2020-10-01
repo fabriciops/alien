@@ -12,12 +12,12 @@ def run_game():
     py.display.set_caption("Alien Invasion")
 
     #Cria uma espaçonave
-    ship = Ship(screen)
+    ship = Ship(ai_setting, screen)
     
     while True:
         # Event do teclado
         gf.check_events(ship)
-
+        ship.update()
         gf.update_screen(ai_setting, screen, ship)
 
 run_game()
